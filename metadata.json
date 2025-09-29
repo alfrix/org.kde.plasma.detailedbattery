@@ -1,0 +1,13 @@
+{
+    "KPlugin": {
+        "Description": "A custom, detailed battery monitor for Plasma 6.",
+        "Description[en_US]": "A custom, detailed battery monitor for Plasma 6.",
+        "Icon": "battery-full",
+        "Id": "org.kde.plasma.detailedbattery",
+        "Name": "Detailed Battery Monitor",
+        "Version": "1.0",
+        "X-KDE-KAppTemplate-Version": "2024.03"
+    },
+    "X-Plasma-API-Minimum-Version": "6.0",
+    "X-Plasma-MainScript": "contents/ui/main.qml"
+}
