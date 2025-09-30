@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kcfg xmlns="http://www.kde.org/standards/kcfg/1.0"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
+                          http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
+    <kcfgfile name=""/>
+
+    <group name="General">
+        <entry name="useCustomDesignCapacity" type="Bool">
+            <label>Use Custom design capacity</label>
+            <default>false</default>
+        </entry>
+        <entry name="customDesignCapacity" type="Double">
+            <label>Custom design capacity in Wh</label>
+            <default>0.0</default>
+        </entry>
+    </group>
+    <group name="internal">
+        <entry name="lastPlugChangeTime" type="String">
+        <label>Last plug change timestamp</label>
+        <default></default>
+        </entry>
+        <entry name="savedElapsedSeconds" type="Int">
+            <label>Saved elapsed seconds</label>
+            <default>0</default>
+        </entry>
+    </group>
+</kcfg>

@@ -2,7 +2,7 @@
     "KPlugin": {
         "Description": "A custom, detailed battery monitor for Plasma 6.",
         "Description[en_US]": "A custom, detailed battery monitor for Plasma 6.",
-        "Icon": "battery-full",
+        "Icon": "utilities-energy-monitor",
         "Id": "org.kde.plasma.detailedbattery",
         "Name": "Detailed Battery Monitor",
         "Version": "1.0",
