@@ -1,0 +1,94 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: detailedbattery\n"
+"POT-Creation-Date: 2025-10-07 17:59:05+0000\n"
+"Language: es\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Display"
+msgstr "Pantalla"
+
+msgid "About"
+msgstr "Acerca de"
+
+msgid "Name:"
+msgstr "Nombre:"
+
+msgid "Version:"
+msgstr "Versión:"
+
+msgid "Description:"
+msgstr "Descripción:"
+
+msgid "Author:"
+msgstr "Autor:"
+
+msgid "Github"
+msgstr "Github"
+
+msgid "License:"
+msgstr "Licencia:"
+
+msgid "Battery Health Settings"
+msgstr "Ajustes de Salud de la Batería"
+
+msgid "Custom capacity:"
+msgstr "Capacidad personalizada:"
+
+msgid "Use custom design capacity"
+msgstr "Usar capacidad de diseño personalizada"
+
+msgid "Design capacity:"
+msgstr "Capacidad de diseño:"
+
+msgid "e.g., 47"
+msgstr "ej., 47"
+
+msgid "Set a custom design capacity in Wh if the reported battery health is inaccurate."
+msgstr "Establezca una capacidad de diseño personalizada en Wh si la salud de la batería reportada es imprecisa."
+
+msgid "h"
+msgstr "h"
+
+msgid "m"
+msgstr "m"
+
+msgid "s"
+msgstr "s"
+
+msgid "No battery"
+msgstr "Sin batería"
+
+msgid "Charged"
+msgstr "Cargada"
+
+msgid "Charging"
+msgstr "Cargando"
+
+msgid "Plugged in"
+msgstr "Conectado"
+
+msgid "Not charging"
+msgstr "No está cargando"
+
+msgid "Discharging"
+msgstr "Descargando"
+
+msgid "until full"
+msgstr "hasta cargarse"
+
+msgid "left"
+msgstr "restante"
+
+msgid "since plugged"
+msgstr "desde la conexión"
+
+msgid "since unplugged"
+msgstr "desde la desconexión"
+
+msgid "Health: N/A"
+msgstr "Salud: N/D"
+
+msgid "N/A"
+msgstr "N/D"

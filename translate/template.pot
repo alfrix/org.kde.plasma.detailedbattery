@@ -1,0 +1,92 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: detailedbattery\n"
+"POT-Creation-Date: 2025-10-07 17:59:05+0000\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+
+msgid "Display"
+msgstr ""
+
+msgid "About"
+msgstr ""
+
+msgid "Name:"
+msgstr ""
+
+msgid "Version:"
+msgstr ""
+
+msgid "Description:"
+msgstr ""
+
+msgid "Author:"
+msgstr ""
+
+msgid "Github"
+msgstr ""
+
+msgid "License:"
+msgstr ""
+
+msgid "Battery Health Settings"
+msgstr ""
+
+msgid "Custom capacity:"
+msgstr ""
+
+msgid "Use custom design capacity"
+msgstr ""
+
+msgid "Design capacity:"
+msgstr ""
+
+msgid "e.g., 47"
+msgstr ""
+
+msgid "Set a custom design capacity in Wh if the reported battery health is inaccurate."
+msgstr ""
+
+msgid "h"
+msgstr ""
+
+msgid "m"
+msgstr ""
+
+msgid "s"
+msgstr ""
+
+msgid "No battery"
+msgstr ""
+
+msgid "Charged"
+msgstr ""
+
+msgid "Charging"
+msgstr ""
+
+msgid "Plugged in"
+msgstr ""
+
+msgid "Not charging"
+msgstr ""
+
+msgid "Discharging"
+msgstr ""
+
+msgid "until full"
+msgstr ""
+
+msgid "left"
+msgstr ""
+
+msgid "since plugged"
+msgstr ""
+
+msgid "since unplugged"
+msgstr ""
+
+msgid "Health: N/A"
+msgstr ""
+
+msgid "N/A"
+msgstr ""
