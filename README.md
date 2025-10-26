@@ -8,3 +8,13 @@ It utilizes data smoothing and averaging to provide more stable and reliable tim
 It falls back to calculating time based on energy remaining and a weighted average power history to smooth out rapid fluctuations in CPU load.
 
 Custom battery design capacity is configurable if your battery doesn't report it.
+
+Installation:
+```bash
+sudo cp -r org.kde.plasma.detailedbattery /usr/share/plasma/plasmoids/
+```
+
+If you updated or changed the code then restart plasma to update:
+```bash
+systemctl --user restart plasma-plasmashell.service
+```
