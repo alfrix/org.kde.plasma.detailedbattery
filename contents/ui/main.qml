@@ -417,9 +417,15 @@ PlasmoidItem {
     // Use UPower's time estimates when available, fall back to calculation
     function getTimeText() {
         if (!batteryControl.hasBatteries) return i18n("No battery")
-        if (batteryControl.pluggedIn && batteryControl.state === BatteryControlModel.FullyCharged) return "Charged"
+        if (batteryControl.pluggedIn
+            && batteryControl.state === BatteryControlModel.FullyCharged
+            ) {
+            return "Charged"
+        }
 
-        if (batteryControl.pluggedIn && batteryControl.state === BatteryControlModel.Charging) {
+        if (batteryControl.pluggedIn
+            && batteryControl.state === BatteryControlModel.Charging
+            ) {
             if (timeToFullSeconds > 0) {
                 return formatTime(timeToFullSeconds) + " " + i18n("until full")
             } else if (energyNowWh > 0) {
@@ -439,6 +445,9 @@ PlasmoidItem {
                 const seconds = (energyNowWh / powerWatts) * 60
                 return formatTime(seconds) + " " + i18n("left")
             }
+            if (batteryControl.pluggedIn) {
+                return i18n("Charged") // Conservation mode
+            }
             return i18n("Calculating")
         }
         return "?"
@@ -451,12 +460,12 @@ PlasmoidItem {
     }
 
     function getCapacityText() {
-        if (energyFullDesignWh <= 0 || energyFullWh <= 0) return i18n("Health: N/A")
+        if (energyFullDesignWh <= 0 || energyFullWh <= 0) return i18n("Health") + ": " + i18n("N/A")
 
         const userDesignCapacity = useCustomDesignCapacity && customDesignCapacity > 0 ? customDesignCapacity : energyFullDesignWh
         const healthPercent = Math.round((energyFullWh / userDesignCapacity) * 100)
 
-        return `Health: ${energyFullWh.toFixed(0)}/${userDesignCapacity.toFixed(0)} Wh (${healthPercent}%)`
+        return `${i18n("Health")}: ${energyFullWh.toFixed(0)}/${userDesignCapacity.toFixed(0)} Wh (${healthPercent}%)`
     }
 
     function formatCurrent() {
@@ -499,7 +508,7 @@ PlasmoidItem {
                 height: Kirigami.Units.iconSizes.medium
             }
             PlasmaComponents.Label {
-                text: "Battery Statistics"
+                text: i18n("Battery Statistics")
                 font.pixelSize: Kirigami.Theme.defaultFont.pixelSize
                 font.bold: true
                 Layout.fillWidth: true
@@ -508,38 +517,37 @@ PlasmoidItem {
 
         // Data rows
         PlasmaComponents.Label {
-            text: "Status: " + getBatteryText()
+            text: i18n("Status") + ": " + getBatteryText()
             font.pixelSize: Kirigami.Theme.defaultFont.pixelSize
             visible: batteryControl.hasBatteries
         }
 
         PlasmaComponents.Label {
-            text: "Remaining: " + getTimeText()
+            text: i18n("Remaining") + ": " + getTimeText()
             font.pixelSize: Kirigami.Theme.defaultFont.pixelSize
             visible: batteryControl.hasBatteries && !(batteryControl.pluggedIn && batteryControl.percent == 100)
         }
 
         PlasmaComponents.Label {
-            text: "Elapsed: " + getElapsedTimeText()
+            text: i18n("Elapsed") + ": " + getElapsedTimeText()
             font.pixelSize: Kirigami.Theme.defaultFont.pixelSize
             visible: batteryControl.hasBatteries
         }
 
         PlasmaComponents.Label {
-            text: "Voltage: " + (voltageVolts > 0 ? voltageVolts.toFixed(1) + " V" : i18n("N/A"))
+            text: i18n("Voltage") + ": " + (voltageVolts > 0 ? voltageVolts.toFixed(1) + " V" : i18n("N/A"))
             font.pixelSize: Kirigami.Theme.defaultFont.pixelSize
             visible: batteryControl.hasBatteries
         }
 
         PlasmaComponents.Label {
-            text: "Current: " + formatCurrent()
+            text: i18n("Current") + ": " + formatCurrent()
             font.pixelSize: Kirigami.Theme.defaultFont.pixelSize
             visible: batteryControl.hasBatteries
         }
 
         PlasmaComponents.Label {
-            text: "Power: " + (powerWatts > 0 ? powerWatts.toFixed(1) + " W" : i18n("N/A"))
-            font.pixelSize: Kirigami.Theme.defaultFont.pixelSize
+            text: i18n("Power (from/to battery)") + ": " + (typeof powerWatts === "number" ? powerWatts.toFixed(1) + " W" : i18n("N/A"))
             visible: batteryControl.hasBatteries
         }
 

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: detailedbattery\n"
-"POT-Creation-Date: 2025-10-07 17:59:05+0000\n"
+"POT-Creation-Date: 2025-10-26 13:06:48+0000\n"
 "Language: es\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -81,14 +81,38 @@ msgstr "hasta cargarse"
 msgid "left"
 msgstr "restante"
 
+msgid "Calculating"
+msgstr "Calculando"
+
 msgid "since plugged"
 msgstr "desde la conexión"
 
 msgid "since unplugged"
 msgstr "desde la desconexión"
 
-msgid "Health: N/A"
-msgstr "Salud: N/D"
+msgid "Health"
+msgstr "Salud"
 
 msgid "N/A"
 msgstr "N/D"
+
+msgid "Battery Statistics"
+msgstr "Estadísticas de batería"
+
+msgid "Status"
+msgstr "Estado"
+
+msgid "Remaining"
+msgstr "Restante"
+
+msgid "Elapsed"
+msgstr "Transcurrido"
+
+msgid "Voltage"
+msgstr "Voltaje"
+
+msgid "Current"
+msgstr "Corriente"
+
+msgid "Power (from/to battery)"
+msgstr "Consumo (desde/a la batería)"
