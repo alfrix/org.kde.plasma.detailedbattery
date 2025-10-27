@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: detailedbattery\n"
-"POT-Creation-Date: 2025-10-27 18:04:28+0000\n"
+"POT-Creation-Date: 2025-10-27 21:01:41+0000\n"
 "Language: es\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -47,6 +47,12 @@ msgstr "ej., 47"
 
 msgid "Set a custom design capacity in Wh if the reported battery health is inaccurate."
 msgstr "Establezca una capacidad de diseño personalizada en Wh si la salud de la batería reportada es imprecisa."
+
+msgid "Refresh interval:"
+msgstr ""
+
+msgid "e.g., 2"
+msgstr "ej., 2"
 
 msgid "h"
 msgstr "h"

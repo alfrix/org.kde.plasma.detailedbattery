@@ -9,6 +9,7 @@ Kirigami.FormLayout {
     // Configuration property bindings
     property alias cfg_useCustomDesignCapacity: customCapacityCheck.checked
     property alias cfg_customDesignCapacity: customCapacityInput.text
+    property alias cfg_updateInterval: customIntervalInput.text
 
     // Battery Health Section
     Item {
@@ -44,5 +45,17 @@ Kirigami.FormLayout {
         wrapMode: Text.Wrap
         font: Kirigami.Theme.smallFont
         color: Kirigami.Theme.disabledTextColor
+    }
+
+    // Refresh rate
+    PlasmaComponents.TextField {
+        id: customIntervalInput
+        Kirigami.FormData.label: i18n("Refresh interval:")
+        placeholderText: i18n("e.g., 2")
+        inputMethodHints: Qt.ImhFormattedNumbersOnly
+        validator: IntValidator {
+            bottom: 1
+            top: 120
+        }
     }
 }

@@ -21,6 +21,7 @@ PlasmoidItem {
     // --- Configuration ---
     property bool useCustomDesignCapacity: plasmoid.configuration.useCustomDesignCapacity
     property real customDesignCapacity: plasmoid.configuration.customDesignCapacity
+    property int updateInterval: Math.max(1, plasmoid.configuration.updateInterval)
 
     // --- UPower-based metrics ---
     property string batteryDevice: ""
@@ -36,7 +37,7 @@ PlasmoidItem {
     // --- Averaging for better estimates ---
     property var timeEstimateHistory: []
     property var powerHistory: []
-    property int updateIntervalSecs: 2
+    property int updateIntervalSecs: updateInterval
     property int maxHistorySize: 60 / updateIntervalSecs
     property real lastStableTimeEstimate: 0
     property int lastStableTimeEstimateType: 0 // 0 = timeToEmpty, 1 = timeToFull
@@ -196,7 +197,7 @@ PlasmoidItem {
         // Extract power and calculate current
         if (data["energy-rate"]) {
             var powerStr = data["energy-rate"].replace(/[^0-9,\.]/g, '').replace(',', '.')
-            powerWatts = parseFloat(powerStr) || powerWatts
+            powerWatts = parseFloat(powerStr)
 
             // Calculate current from power and voltage
             if (voltageVolts > 0) {

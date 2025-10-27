@@ -14,6 +14,10 @@
             <label>Custom design capacity in Wh</label>
             <default>0.0</default>
         </entry>
+        <entry name="updateInterval" type="Int">
+            <label>How often does it update</label>
+            <default>2</default>
+        </entry>
     </group>
     <group name="internal">
         <entry name="lastPlugChangeTime" type="String">
