@@ -569,8 +569,8 @@ PlasmoidItem {
         if (batteryControl.hasBatteries) {
             parts.push("Remaining: " + getTimeText())
             parts.push("Elapsed: " + getElapsedTimeText())
-            if (voltageVolts > 0) parts.push("Voltage: " + voltageVolts.toFixed(1) + " V")
-            if (powerWatts > 0) parts.push("Power: " + powerWatts.toFixed(1) + " W")
+            if (voltageVolts > 0) parts.push(i18n("Voltage") + ": " + voltageVolts.toFixed(1) + " V")
+            if (powerWatts > 0) parts.push(i18n("Power") + ": " + powerWatts.toFixed(1) + " W")
             if (energyFullWh > 0) parts.push(getCapacityText())
         }
         return parts.join("\n")
