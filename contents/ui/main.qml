@@ -158,6 +158,9 @@ PlasmoidItem {
     function parseBatteryInfo(output) {
         if (!output || output.trim() === "") return
 
+        timeToEmptySeconds = 0
+        timeToFullSeconds = 0
+
         var lines = output.trim().split('\n')
         var data = {}
 
@@ -427,6 +430,9 @@ PlasmoidItem {
         if (batteryControl.pluggedIn
             && batteryControl.state === BatteryControlModel.Charging
             ) {
+            if (powerWatts < 0.1) {
+                return i18n("Charged") // Conservation mode
+            }
             if (timeToFullSeconds > 0) {
                 return formatTime(timeToFullSeconds) + " " + i18n("until full")
             } else if (energyNowWh > 0) {
