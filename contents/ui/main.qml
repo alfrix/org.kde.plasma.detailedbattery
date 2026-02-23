@@ -501,71 +501,77 @@ PlasmoidItem {
     }
 
     // Full representation for desktop
-    fullRepresentation: ColumnLayout {
-        anchors.leftMargin: Kirigami.Units.largeSpacing
-        anchors.rightMargin: Kirigami.Units.largeSpacing
-        spacing: Kirigami.Units.largeSpacing
-
-        // Header with title
-        RowLayout {
+    fullRepresentation: Item {
+        implicitWidth: content.implicitWidth + Kirigami.Units.largeSpacing * 2
+        implicitHeight: content.implicitHeight + Kirigami.Units.largeSpacing * 2
+        ColumnLayout {
+            anchors.fill: parent
+            anchors.topMargin: Kirigami.Units.smallSpacing
+            anchors.bottomMargin: Kirigami.Units.largeSpacing
+            anchors.leftMargin: Kirigami.Units.largeSpacing
+            anchors.rightMargin: Kirigami.Units.largeSpacing
             spacing: Kirigami.Units.largeSpacing
-            Kirigami.Icon {
-                source: "utilities-energy-monitor"
-                width: Kirigami.Units.iconSizes.medium
-                height: Kirigami.Units.iconSizes.medium
+
+            // Header with title
+            RowLayout {
+                spacing: Kirigami.Units.largeSpacing
+                Kirigami.Icon {
+                    source: "utilities-energy-monitor"
+                    width: Kirigami.Units.iconSizes.medium
+                    height: Kirigami.Units.iconSizes.medium
+                }
+                PlasmaComponents.Label {
+                    text: i18n("Battery Statistics")
+                    font.pixelSize: Kirigami.Theme.defaultFont.pixelSize
+                    font.bold: true
+                }
             }
+
+            // Data rows
             PlasmaComponents.Label {
-                text: i18n("Battery Statistics")
+                text: i18n("Status") + ": " + getBatteryText()
                 font.pixelSize: Kirigami.Theme.defaultFont.pixelSize
-                font.bold: true
-                Layout.fillWidth: true
+                visible: batteryControl.hasBatteries
             }
-        }
 
-        // Data rows
-        PlasmaComponents.Label {
-            text: i18n("Status") + ": " + getBatteryText()
-            font.pixelSize: Kirigami.Theme.defaultFont.pixelSize
-            visible: batteryControl.hasBatteries
-        }
+            PlasmaComponents.Label {
+                text: i18n("Remaining") + ": " + getTimeText()
+                font.pixelSize: Kirigami.Theme.defaultFont.pixelSize
+                visible: batteryControl.hasBatteries && !(batteryControl.pluggedIn && batteryControl.percent == 100)
+            }
 
-        PlasmaComponents.Label {
-            text: i18n("Remaining") + ": " + getTimeText()
-            font.pixelSize: Kirigami.Theme.defaultFont.pixelSize
-            visible: batteryControl.hasBatteries && !(batteryControl.pluggedIn && batteryControl.percent == 100)
-        }
+            PlasmaComponents.Label {
+                text: i18n("Elapsed") + ": " + getElapsedTimeText()
+                font.pixelSize: Kirigami.Theme.defaultFont.pixelSize
+                visible: batteryControl.hasBatteries
+            }
 
-        PlasmaComponents.Label {
-            text: i18n("Elapsed") + ": " + getElapsedTimeText()
-            font.pixelSize: Kirigami.Theme.defaultFont.pixelSize
-            visible: batteryControl.hasBatteries
-        }
+            PlasmaComponents.Label {
+                text: i18n("Voltage") + ": " + (voltageVolts > 0 ? voltageVolts.toFixed(1) + " V" : i18n("N/A"))
+                font.pixelSize: Kirigami.Theme.defaultFont.pixelSize
+                visible: batteryControl.hasBatteries
+            }
 
-        PlasmaComponents.Label {
-            text: i18n("Voltage") + ": " + (voltageVolts > 0 ? voltageVolts.toFixed(1) + " V" : i18n("N/A"))
-            font.pixelSize: Kirigami.Theme.defaultFont.pixelSize
-            visible: batteryControl.hasBatteries
-        }
+            PlasmaComponents.Label {
+                text: i18n("Current") + ": " + formatCurrent()
+                font.pixelSize: Kirigami.Theme.defaultFont.pixelSize
+                visible: batteryControl.hasBatteries
+            }
 
-        PlasmaComponents.Label {
-            text: i18n("Current") + ": " + formatCurrent()
-            font.pixelSize: Kirigami.Theme.defaultFont.pixelSize
-            visible: batteryControl.hasBatteries
-        }
+            PlasmaComponents.Label {
+                text: i18n("Power (from/to battery)") + ": " + (typeof powerWatts === "number" ? powerWatts.toFixed(1) + " W" : i18n("N/A"))
+                visible: batteryControl.hasBatteries
+            }
 
-        PlasmaComponents.Label {
-            text: i18n("Power (from/to battery)") + ": " + (typeof powerWatts === "number" ? powerWatts.toFixed(1) + " W" : i18n("N/A"))
-            visible: batteryControl.hasBatteries
-        }
-
-        PlasmaComponents.Label {
-            text: getCapacityText()
-            font.pixelSize: Kirigami.Theme.defaultFont.pixelSize
-            visible: batteryControl.hasBatteries
-        }
-        Item {
-            // Bottom spacer
-            Layout.preferredHeight: Kirigami.Units.smallSpacing
+            PlasmaComponents.Label {
+                text: getCapacityText()
+                font.pixelSize: Kirigami.Theme.defaultFont.pixelSize
+                visible: batteryControl.hasBatteries
+            }
+            Item {
+                // Bottom spacer
+                Layout.preferredHeight: Kirigami.Units.smallSpacing
+            }
         }
     }
 
