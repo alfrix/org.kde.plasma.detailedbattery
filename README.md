@@ -18,3 +18,6 @@ If you updated or changed the code then restart plasma to update:
 ```bash
 systemctl --user restart plasma-plasmashell.service
 ```
+
+For translations first run merge.sh that will update POT files
+after translating run build.sh
