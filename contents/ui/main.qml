@@ -44,7 +44,7 @@ PlasmoidItem {
 
     // --- Elapsed time tracking ---
     property int elapsedSeconds: 0
-    property bool wasPluggedIn: batteryControl.pluggedIn
+    property bool wasPluggedIn: plasmoid.configuration.pluggedIn
     property string lastPlugChangeTime: plasmoid.configuration.lastPlugChangeTime
     property int savedElapsedSeconds: plasmoid.configuration.savedElapsedSeconds
 
@@ -97,25 +97,25 @@ PlasmoidItem {
 
     // --- Core Functions ---
     function updateElapsedTime() {
-        if (wasPluggedIn !== batteryControl.pluggedIn) {
+        if (plasmoid.configuration.wasPluggedIn !== batteryControl.pluggedIn) {
             // Plug state changed - save the timestamp
             var now = new Date()
             lastPlugChangeTime = now.toISOString()
             plasmoid.configuration.lastPlugChangeTime = lastPlugChangeTime
             elapsedSeconds = 0
             plasmoid.configuration.savedElapsedSeconds = 0
-            wasPluggedIn = batteryControl.pluggedIn
-        } else {
-            // Update elapsed time based on current interval
-            elapsedSeconds += (elapsedTimer.interval / 1000);
-            plasmoid.configuration.savedElapsedSeconds = Math.floor(elapsedSeconds);
+            plasmoid.configuration.wasPluggedIn = batteryControl.pluggedIn
+            return
+        }
+        // Update elapsed time based on current interval
+        elapsedSeconds += (elapsedTimer.interval / 1000);
+        plasmoid.configuration.savedElapsedSeconds = Math.floor(elapsedSeconds);
 
-            // Adaptive interval switching
-            if (elapsedTimer.interval === 1000 && elapsedSeconds >= 60) {
-                elapsedTimer.interval = 60000
-            } else if (elapsedTimer.interval === 60000 && elapsedSeconds < 60) {
-                elapsedTimer.interval = 1000
-            }
+        // Adaptive interval switching
+        if (elapsedTimer.interval === 1000 && elapsedSeconds >= 60) {
+            elapsedTimer.interval = 60000
+        } else if (elapsedTimer.interval === 60000 && elapsedSeconds < 60) {
+            elapsedTimer.interval = 1000
         }
     }
 
@@ -586,7 +586,6 @@ PlasmoidItem {
     }
 
     Component.onCompleted: {
-        wasPluggedIn = batteryControl.pluggedIn
         restoreElapsedTime()
         updateBatteryData()
     }
