@@ -107,12 +107,8 @@ PlasmoidItem {
             wasPluggedIn = batteryControl.pluggedIn
         } else {
             // Update elapsed time based on current interval
-            if (elapsedTimer.interval === 1000) {
-                elapsedSeconds++
-            } else {
-                elapsedSeconds += 60
-            }
-            plasmoid.configuration.savedElapsedSeconds = elapsedSeconds
+            elapsedSeconds += (elapsedTimer.interval / 1000);
+            plasmoid.configuration.savedElapsedSeconds = Math.floor(elapsedSeconds);
 
             // Adaptive interval switching
             if (elapsedTimer.interval === 1000 && elapsedSeconds >= 60) {
