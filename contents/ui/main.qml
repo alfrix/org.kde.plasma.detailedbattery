@@ -559,7 +559,7 @@ PlasmoidItem {
             }
 
             PlasmaComponents.Label {
-                text: i18n("Power (from/to battery)") + ": " + (typeof powerWatts === "number" ? powerWatts.toFixed(1) + " W" : i18n("N/A"))
+                text: i18n("Battery Power") + ": " + (currentAmps > 0 ? "+" : "") + (currentAmps < 0 ? "-" : "")  + powerWatts.toFixed(1) + " W"
                 visible: batteryControl.hasBatteries
             }
 

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: detailedbattery\n"
-"POT-Creation-Date: 2025-10-27 21:01:41+0000\n"
+"POT-Creation-Date: 2026-02-23 14:46:14+0000\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 
 msgid "Display"
@@ -118,7 +118,7 @@ msgstr ""
 msgid "Current"
 msgstr ""
 
-msgid "Power (from/to battery)"
+msgid "Battery Power"
 msgstr ""
 
 msgid "Power"

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: detailedbattery\n"
-"POT-Creation-Date: 2025-10-27 21:01:41+0000\n"
+"POT-Creation-Date: 2026-02-23 14:46:14+0000\n"
 "Language: es\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -120,8 +120,9 @@ msgstr "Voltaje"
 msgid "Current"
 msgstr "Corriente"
 
-msgid "Power (from/to battery)"
-msgstr "Potencia (desde/a la batería)"
+msgid "Battery Power"
+msgstr "Potencia de batería"
 
 msgid "Power"
 msgstr "Potencia"
+
