@@ -49,7 +49,7 @@ msgid "Set a custom design capacity in Wh if the reported battery health is inac
 msgstr "Establezca una capacidad de diseño personalizada en Wh si la salud de la batería reportada es imprecisa."
 
 msgid "Refresh interval:"
-msgstr ""
+msgstr "Intervalo de actualización"
 
 msgid "e.g., 2"
 msgstr "ej., 2"
@@ -125,4 +125,3 @@ msgstr "Potencia de batería"
 
 msgid "Power"
 msgstr "Potencia"
-
