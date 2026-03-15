@@ -471,10 +471,10 @@ PlasmoidItem {
         return `${i18n("Health")}: ${energyFullWh.toFixed(0)}/${userDesignCapacity.toFixed(0)} Wh (${healthPercent}%)`
     }
 
-    function formatCurrent() {
-        if (Math.abs(currentAmps) < 0.01) return "0.00 A"
-        var sign = (batteryControl.pluggedIn && batteryControl.state === BatteryControlModel.Charging) ? "+" : "-"
-        return sign + Math.abs(currentAmps).toFixed(2) + " A"
+    function formatWithSign(number) {
+        if (Math.abs(number) < 0.01) return "0.00"
+        var sign = (batteryControl.pluggedIn && batteryControl.state === BatteryControlModel.Charging) ? "+ " : "- "
+        return sign + Math.abs(number).toFixed(2)
     }
 
     // --- UI Representations ---
@@ -549,13 +549,13 @@ PlasmoidItem {
             }
 
             PlasmaComponents.Label {
-                text: i18n("Current") + ": " + formatCurrent()
+                text: i18n("Current") + ": " + formatWithSign(currentAmps) + " A"
                 font.pixelSize: Kirigami.Theme.defaultFont.pixelSize
                 visible: batteryControl.hasBatteries
             }
 
             PlasmaComponents.Label {
-                text: i18n("Battery Power") + ": " + (currentAmps > 0 ? "+" : "") + (currentAmps < 0 ? "-" : "")  + powerWatts.toFixed(1) + " W"
+                text: i18n("Battery Power") + ": " + formatWithSign(powerWatts) + " W"
                 visible: batteryControl.hasBatteries
             }
 
